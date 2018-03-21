@@ -1,0 +1,178 @@
+# Page principale, première page de Melodya
+m_index:
+    path:    /
+    defaults:
+      _controller: AmamaMelodyaBundle:User:index
+
+# Page d'accueil dès la connexion du membre
+m_home:
+    path:    /home/ #{page} #URL
+    defaults:
+      _controller: AmamaMelodyaBundle:User:home
+
+# Redirection vers la page principale après déconnexion
+m_deconnexion:
+    path: /m_deconnexion/
+    defaults:
+      _controller: AmamaMelodyaBundle:User:index
+
+# Page du profil de la personne connectée
+m_profil:
+  path:    /profil/{login}
+  defaults:
+    _controller: AmamaMelodyaBundle:User:profil
+
+m_profil_musique:
+  path:    /profil/{login}/musiques
+  defaults:
+    _controller: AmamaMelodyaBundle:User:profilMusiques
+
+# Page du profil du membre dont on souhaite voir le profil dans le parcours des profils
+m_profil_p:
+  path:    /profil_p/{login}
+  defaults:
+    _controller: AmamaMelodyaBundle:User:profil_p
+
+# Page de changements des informations du profil
+m_parametres_profil:
+    path:    /parametres_profil/
+    defaults:
+      _controller: AmamaMelodyaBundle:User:parametresProfil
+
+# Page de parcours des profils des différents membres
+m_profiles:
+    path: /profiles/
+    defaults:
+      _controller: AmamaMelodyaBundle:User:parcoursProfils
+
+# Page d'upload de musiques
+m_upload:
+  path:    /upload/
+  defaults:
+    _controller: AmamaMelodyaBundle:Musique:upload
+
+# Page d'affichage des musiques du membre actuel
+m_musiques:
+  path:    /musiques/
+  defaults:
+    _controller: AmamaMelodyaBundle:Musique:lireMusique
+
+m_musiques_p:
+  path:    /musiques/{id}
+  defaults:
+    _controller: AmamaMelodyaBundle:Musique:lireMusique_p
+
+# Page d'affichage des musiques du membre dont on consulte le profil
+
+
+# Page de téléchargement
+m_musique_download:
+  path:    /musique_download/{musique}
+  defaults:
+    _controller: AmamaMelodyaBundle:Musique:downloadFile
+
+# Page de création de groupe
+m_creation_groupe:
+    path:    /creation_groupe/
+    defaults:
+      _controller: AmamaMelodyaBundle:Groupe:creationGroupe
+
+# Page d'accueil du groupe
+m_home_groupe:
+    path:    /groupe/home/{id}
+    defaults:
+      _controller: AmamaMelodyaBundle:Groupe:homeGroupe
+
+# Chat du groupe
+m_groupe_tchat:
+    path:    /groupe/tchat/{id}
+    defaults:
+      _controller: AmamaMelodyaBundle:Groupe:tchatGroupe
+
+# Liste des membres du groupe
+m_groupe_membres:
+    path:    /groupe/membres/{id}
+    defaults:
+      _controller: AmamaMelodyaBundle:Groupe:listeMembres
+
+# Liste des membres du groupe
+m_ajout_membre:
+    path:    /groupe/ajout/{id}
+    defaults:
+      _controller: AmamaMelodyaBundle:Groupe:ajouterMembre
+
+# Liste des invitations du membre connecté
+m_invitations:
+    path:    /profil/invitations/{idUser}
+    defaults:
+      _controller: AmamaMelodyaBundle:User:invitations
+
+# Page d'accueil du salon de chats publics
+m_home_tchat:
+    path:    /tchat/
+    defaults:
+      _controller: AmamaMelodyaBundle:Tchat:index
+
+# Page du chat public choisi
+m_tchat_tag:
+    path:    /tchat/{tag}
+    defaults:
+      _controller: AmamaMelodyaBundle:Tchat:salonTchat
+
+# Page de chat (messages)
+m_message_chat:
+    path:    /tchat/
+    defaults:
+      _controller: AmamaMelodyaBundle:Tchat:messageTchat
+
+# Page de Discoverya
+m_discoverya:
+    path:    /discoverya/{page}
+    defaults:
+     {_controller: AmamaMelodyaBundle:Discoverya:index, page: 1}
+    requirements:
+      page: \d+
+
+# Page de création de playlist
+m_creation_playlist:
+    path:    /creation_playlist/
+    defaults:
+      _controller: AmamaMelodyaBundle:Playlist:creerPlaylist
+
+# Page d'affichage de la playlist choisi
+m_playlist:
+    path:    /playlist/{id}
+    defaults:
+      _controller: AmamaMelodyaBundle:Playlist:afficherPlaylist
+
+# Page d'affichage de la liste de playlists du membre connecté
+m_playlists:
+    path:    /playlists/
+    defaults:
+      _controller: AmamaMelodyaBundle:Playlist:listePlaylists
+
+# Page d'affichage de la liste de playlists du membre dont on consulte le profil
+m_playlists_p:
+    path:    /playlists_p/{id}
+    defaults:
+      _controller: AmamaMelodyaBundle:Playlist:listePlaylists_p
+
+m_search_results_musique:
+    path:    /search_result/
+    defaults:
+      _controller: AmamaMelodyaBundle:User:afficheResultatMusique
+
+# m_slug:
+#     path:      /{year}/{slug}.{format}
+#     defaults:
+#         _controller: AmamaMelodyaBundle:Advert:viewSlug
+#         format: html
+#     requirements:
+#         year: \d{4}
+#         format: html|xml
+
+
+
+
+
+        # _locale pour la langue

@@ -1,0 +1,87 @@
+{% extends "AmamaMelodyaBundle:templates:layout.html.twig" %}
+
+{% block title %}Profil{% endblock %}
+
+  {% block body %}
+
+    <div class="row">
+
+      {% if user.avatar is defined  %}
+        <div class="col-lg-push-1">
+          <h3 class="text-center"> {{user.login}} </h3>
+          <hr>
+          <div id="avatar" class="jumbotron" style="background-image: linear-gradient(RGBA(176, 0, 0, 0.2),white)">
+            <img src="{{  asset('bundles/amamamelodya/img/avatar/' ~ user.avatar) }}" alt="{{ user.avatar }}" width="20%" class="img-thumbnail" />
+            <div class="col-lg-8 pull-right">
+
+
+              {% if musiques %}
+               {% for row in musiques %}
+                <a href="{{ path('m_musiques')}}">{{ row.titre }} - {{row.artiste}}</a><br>
+                <audio controls id="derniereMusique">
+                  <source src="{{ path('m_musique_download',{'musique': row.lien}) }}" type="audio/mp3">
+                    Votre navigateur ne supporte pas <code>audio</code>.
+                  </audio><br><br>
+
+                {% endfor %}
+                 <a href="{{ path('m_musiques_p', { 'id': user.id }) }}"><h5> Voir toutes ses musiques</h5></a>
+              {% else %}
+                </br>
+                {{ user.login }} n'a pas encore uploadé de musiques.
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% else %}
+        <div class="col-lg-5">
+          <div id="avatar" class="jumbotron center-block">
+            <img src="{{ asset('bundles/amamamelodya/img/avatarParDefaut.png') }}" />
+          </div>
+        </div>
+
+      {% endif %}
+    </div>
+
+    <hr>
+    <div class="row">
+      <div class="col-lg-6"> 
+        <h3>Informations personnelles</h3>
+        {% if user %}
+          Prénom : {{ user.prenom }} </br>
+          Login : {{ user.login }} </br>
+          Age : {{ 2018 - user.anneeNaissance }} ans</br>
+        {% endif %}
+      </div>
+
+      <div class="col-lg-6 col-lg-push-2">
+        <h3>Ses groupes</h3>  
+        {% if groupes %}
+          {% for row in groupes %}
+           <li><a href="{{ path('m_home_groupe', { 'id': row.id })}}">{{ row.nom }}</a></li>
+         {% endfor %}
+       {% else %}
+        {{ user.login }} n'appartient à aucun groupe.
+      </br>
+    {% endif %}
+</div>
+
+</div>
+<hr>
+
+<div class="row">
+  <div class="col-lg-6">
+    Ses tags de musiques préférées : <span class="badge badge-pill">Hip-Hop</span> <span class="badge badge-pill">Kompa</span>
+  </br>
+</div>
+
+<div class="col-lg-6 col-lg-push-2">
+  <h3>Ses playlists</h3>
+  {% if playlists %}
+    <a href="{{ path('m_playlists_p', { 'id': user.id })}}">Consulter ses playlists</a></br>
+  {% else %}
+   {{ user.login }} n'a pas encore crée de playlists...
+ {% endif %}
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "AmamaMelodyaBundle:templates:layout.html.twig" %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+<h3 class="text-center">Chat public</h3>
+
+<div class="row">
+    <hr>
+    <p class="text-center" style="color: orange; font-size: 1.2em">
+  Venez échanger avec des personnes qui partagent les mêmes goûts musicaux que vous.</p>
+ 
+    {% for tag in tags %}
+        <div class="col-lg-3 col-lg-push-1 jumbotron" style="margin: 1%; padding: 1%;">
+            <a href="{{ path('m_tchat_tag',{'tag': tag.id}) }}" style="margin: 1%;">{{ tag.nom }}</a>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

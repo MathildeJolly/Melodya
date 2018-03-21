@@ -1,0 +1,79 @@
+{% extends "AmamaMelodyaBundle:templates:layout.html.twig" %}
+
+{% block title %}Profil{% endblock %}
+
+  {% block body %}
+
+
+    <div class="row">
+      {% if user.avatar is defined  %}
+        <div class="col-lg-push-1">
+          <h3 class="text-center"> Mon profil </h3>
+          <hr>
+          <div id="avatar" class="jumbotron" style="background-image: linear-gradient(RGBA(176, 0, 0, 0.2),white)">
+            <div class="row">
+              <div class="pull-left" style="margin:1%;">
+                <a href="{{ path('m_parametres_profil') }}"><img src="{{ asset('bundles/amamamelodya/img/icone/png/cog-2x.png') }}">  Modifier mon profil</a>
+              </div>
+            </div>
+            <img src="{{  asset('bundles/amamamelodya/img/avatar/' ~ user.avatar) }}" alt="{{ user.avatar }}"  width="20%" class="img-thumbnail" />
+
+            {% for row in lastMusique %}
+              <a href="{{ path('m_musiques')}}">{{ row.titre }}</a>
+              <audio controls id="derniereMusique">
+                <source src="{{ path('m_musique_download',{'musique': row.lien}) }}" type="audio/mp3">
+                  Votre navigateur ne supporte pas <code>audio</code>.
+                </audio>
+              {% endfor %}
+            </div>
+          </div>
+        {% else %}
+          <div class="col-lg-push-1">
+            <div id="avatar" class="jumbotron" style="background: RGBA(176, 0, 0, 0.2)">
+             <div class="row">
+              <div class="pull-left" style="padding-bottom:1%;">
+                <a href="{{ path('m_parametres_profil') }}"><img src="{{ asset('bundles/amamamelodya/img/icons/settings-work-tool.png') }}">  Modifier mon profil</a>
+              </div>
+            </div>
+            <img src="{{ asset('bundles/amamamelodya/img/avatarParDefaut.png') }}" />
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+
+  <ul class="nav navbar-nav">
+       <li><a href="{{ path('m_profil',{ 'login': user.login }) }}/" rel="nofollow">Informations personnelles</a></li>
+       <li><a href="{{ path('m_profil',{ 'login': user.login }) }}/playlists" rel="nofollow">Playlists</a></li>
+       <li><a href="{{ path('m_profil_musique',{ 'login': user.login }) }}/" rel="nofollow">Musiques</a></li>
+  </ul>
+
+
+    <hr>
+    <h3>Mes musiques</h3>
+
+
+
+<div class="row">
+  <div id="musique" class="jumbotron col-lg-4">
+    Mes tags de musiques préférées : <span class="badge badge-pill">Hip-Hop</span> <span class="badge badge-pill">Kompa</span> </br>
+    <a>Ajouter un tag de musique préférée</a></br>
+
+    {% if musiques %}
+      Mes dernières musiques uploadées : </br>
+      {% for row in musiques %}
+       <li><a href="{{ path('m_musiques')}}">{{ row.titre }}</a></li>
+     {% endfor %}
+   {% else %}
+   </br>
+   Vous n'avez pas encore uploadé de musiques sur Melodya...
+ </br>
+ <a href="{{ path('m_upload') }}">Uploader une musique</a>
+{% endif %}
+
+</div>
+
+
+
+
+{% endblock %}

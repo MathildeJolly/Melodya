@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Melodya</title>
+
+  <link rel="stylesheet" type="text/css" href="{{ asset('bundles/amamamelodya/bootstrap/css/bootstrap.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('bundles/amamamelodya/css/one-page-wonder-index.css') }}">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Snippet" />
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background:#8B0000">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{{ path('m_index') }}"><!--<img src="{{ asset('bundles/amamamelodya/img/logo.jpeg') }}">-->Melodya</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+        <ul class="nav navbar-nav navbar-right">
+          <li style=" margin:1%;" id="connexion">
+           
+            {% include 'AmamaMelodyaBundle:User:connexion.html.twig' %}
+           
+         </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="header-image">
+  <div class="headline">
+    <div class="container">
+     <div class="row" style="display: table;">
+      <div class="span6">
+        <h1>Bienvenue sur Melodya</h1>
+         <h2 class="featurette-heading">Venez à la rencontre d'autres personnes
+        partageant vos goûts musicaux
+        </h2>
+      </div>
+      <div class="span6">
+      {% for message in app.flashes('notice') %}
+        <div id="notif" class="alert alert-success alert-dismissable col-lg-7">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+      {% endfor %}
+        <div id="inscription">
+          {% include 'AmamaMelodyaBundle:User:inscription.html.twig'%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+<footer class="m_footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <p>Copyright &copy; Amama - Melodya 2018</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

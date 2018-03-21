@@ -1,0 +1,1 @@
+a:3:{i:0;C:46:"Symfony\Component\Config\Resource\FileResource":52:{s:44:"C:\wamp64\www\Symfony\app\config\routing.yml";}i:1;C:46:"Symfony\Component\Config\Resource\FileResource":80:{s:72:"C:\wamp64\www\Symfony\src\OC\PlatformBundle\Resources\config\routing.yml";}i:2;C:72:"Symfony\Component\DependencyInjection\Config\ContainerParametersResource":6:{a:0:{}}}

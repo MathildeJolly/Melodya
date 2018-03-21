@@ -1,0 +1,202 @@
+/*
+ * Start Bootstrap - One Page Wonder (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+
+/* CSS de la page Index */
+body, html {
+    margin-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    margin: 0;
+    padding: 0;
+    height: 100%;
+   margin-bottom: 7%;
+    }
+
+.header-image { 
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: url('../img/header.jpeg') no-repeat center center scroll; /* http://content.istockphoto.com/wp-content/uploads/2016/08/Header-1900-x-500.jpg */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.span6 {
+    display: table-cell;
+    width: 55%;
+    padding: 3%;
+}
+
+.headline {
+    padding: 120px 0;
+}
+
+.headline h1 {
+    color: black;
+    font-size: 75px;
+    /*background: #fff;*/
+    background: rgba(255,255,255,0.1);
+}
+
+.headline h2 {
+    color: black;
+    font-size: 45px;
+    /*background: #fff;*/
+    background: rgba(255,255,255,0.1);
+}
+
+h4 {
+    color: orange;
+    margin: 20%;
+}
+
+/* CSS de la Page Parcourir les Profils */
+
+#parcoursProfilAvatar {
+    max-width: 353.400px;
+    min-width: 353.400px;
+    max-height: 353.400px;
+    min-height: 353.400px;
+    width: 100%;
+    border-radius: 4px; 
+}
+
+.parcoursProfilBlock1 {
+    display: table;
+    width: 100%;
+}
+
+.parcoursProfilBlock2 {
+     display: table-cell;
+     float:left;
+     width: 31%;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+     margin:10px;
+}
+
+.parcoursProfilInfo {
+   text-align: center;
+    padding: 10px 20px;
+}
+
+/* Footer pour toutes les pages */
+
+footer p {
+    color: white;
+    text-align: center;
+}
+
+.m_footer{
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background: #8B0000;
+   padding: 10px;
+}
+
+/* Style pour le lecteur de musique */
+
+
+#mesMusiques {
+     width: 55%;
+     -moz-border-radius:7px 7px 7px 7px ;
+    -webkit-border-radius:7px 7px 7px 7px ;
+    border-radius:7px 7px 7px 7px;
+
+    -moz-box-shadow: 2px 2px 4px 0px grey;
+    -webkit-box-shadow:  2px 2px 4px 0px  grey;
+    box-shadow: 2px 2px 4px 0px  grey;
+}
+#derniereMusique {
+    width: 50%;
+       
+    -webkit-transition:all 0.5s linear;
+    -moz-transition:all 0.5s linear;
+    -o-transition:all 0.5s linear;
+    transition:all 0.5s linear;
+
+    -moz-box-shadow: 2px 2px 4px 0px #8B0000;
+    -webkit-box-shadow:  2px 2px 4px 0px  #8B0000;
+    box-shadow: 2px 2px 4px 0px  #8B0000;
+
+    -moz-border-radius:7px 7px 7px 7px ;
+    -webkit-border-radius:7px 7px 7px 7px ;
+    border-radius:7px 7px 7px 7px;
+}
+
+#derniereMusique:hover, #derniereMusique:focus, #derniereMusique:active {
+    -webkit-box-shadow: 5px 5px 10px rgba(174,0, 0, 0.4);
+    -moz-box-shadow: 5px 5px 10px rgba(174,0, 0, 0.4);
+    box-shadow: 5px 5px 10px rgba(147,0, 0, 0.4);
+
+    -webkit-transform: scale(1.01);
+    -moz-transform: scale(1.01);
+    transform: scale(1.01);
+}
+
+/* Media Queris */
+
+
+@media(max-width:1200px) {
+    .headline h1 {
+        font-size: 75px;
+    }
+
+    .headline h2 {
+        font-size: 45px;
+    }
+}
+
+@media(max-width:991px) {
+    .headline h1 {
+        font-size: 65px;
+    }
+
+    .headline h2 {
+        font-size: 35px;
+    }
+}
+
+@media(max-width:768px) {
+    .container {
+        margin: 0 15px;
+    }
+}
+
+@media(max-width:668px) {
+    .headline h1 {
+        font-size: 50px;
+    }
+
+    .headline h2 {
+        font-size: 30px;
+    }
+
+    .connexion {
+        margin-left: 50%;
+    }
+
+    .navbar-brand {
+        width: 0%;
+    }
+}
+
+@media(max-width:640px) {
+    .headline {
+        padding: 75px 0 25px 0;
+    }
+
+    .headline h1 {
+        font-size: 30px;
+    }
+
+    .headline h2 {
+        font-size: 20px;
+    }
+}
+

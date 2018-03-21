@@ -1,0 +1,19 @@
+{% if pagination.nbPages > 0 %}
+    <ul class="pagination">
+        {% if pagination.page > 1 %}
+            <li>
+                <a id="test" href=" {{ path(pagination.nomRoute, pagination.paramsRoute|merge({'page': pagination.page-1}) ) }} ">
+                    <
+                </a>
+            </li>
+        {% endif %}
+
+        {% if pagination.page < pagination.nbPages %}
+            <li>
+                <a href="{{ path(pagination.nomRoute, pagination.paramsRoute|merge({'page': pagination.page+1}) ) }}" >
+                    >
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+{% endif %}

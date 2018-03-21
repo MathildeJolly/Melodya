@@ -1,0 +1,23 @@
+{% extends "AmamaMelodyaBundle:templates:layout_groupe.html.twig" %}
+
+{% block title %}Ajouter des membres{% endblock %}
+
+{% block body %}
+  <h3 class="text-center">Ajouter des membres</h3>
+
+  <hr>
+
+  <div>
+    <div class="form-group">
+        {{ form_start(formulaire, {'attr': {'class': 'form-horizontal'}}) }}
+        {{ form_errors(formulaire) }}
+
+        {{ form_row(formulaire.toIdMembre) }}
+
+        {{ form_widget(formulaire.Envoyer, {'attr': {'class': 'btn btn-success btn-block'}}) }}
+
+        {{ form_rest(formulaire) }}
+        {{ form_end(formulaire) }}
+    </div>
+  </div>
+{% endblock %}

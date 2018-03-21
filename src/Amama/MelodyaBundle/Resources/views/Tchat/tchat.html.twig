@@ -1,0 +1,24 @@
+{% extends "AmamaMelodyaBundle:templates:layout.html.twig" %}
+
+{% block title %}Tchat {{ nom }}{% endblock %}
+
+{% block body %}
+
+    <a  style="display: none;" id="url_tchat" href="{{ path('m_message_chat') }}">edfzfzfzzf</a>
+    <a  style="display: none;" id="id_tag" href="{{ tag }}">edfzfzfzzf</a>
+    <button  style="display: none;" id="id_user" value="{{ idUser }}">edfzfzfzzf</button>
+
+
+    <div class="col-sm-12 frame">
+        <ul id="tchat"></ul>
+        <div>
+            <div class="msj-rta macro" style="margin:auto">                        
+                <div class="text text-r" style="background:whitesmoke !important">
+                    <input class="mytext" placeholder="Type a message"/>
+                </div> 
+            </div>
+        </div>
+    </div>            
+
+
+{% endblock %}

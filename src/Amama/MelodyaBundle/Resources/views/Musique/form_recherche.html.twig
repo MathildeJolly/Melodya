@@ -1,0 +1,10 @@
+<div class="form-group">
+  {{ form_start(form, {'attr': {'class': 'navbar-form navbar-right'}}) }}
+  {{ form_errors(form) }}
+
+  {{ form_row(form.titre) }}
+
+  {{ form_widget(form.Recherche, {'attr': {'class': 'btn btn-default'}}) }}
+  {{ form_rest(form) }}
+  {{ form_end(form) }}
+</div>

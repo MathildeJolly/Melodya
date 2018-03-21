@@ -1,0 +1,42 @@
+{% extends "AmamaMelodyaBundle:templates:layout.html.twig" %}
+
+{% block title %}Invitations{% endblock %}
+
+{% block body %}
+<h3 class="text-center">Mes invitations</h3>
+
+<hr>
+
+{% if invitations is not defined %}
+  <p>Vous n'avez pas encore d'invitations.</p>
+{% else %}
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nom du groupe</th>
+                    <th>Réponse</th>
+                </tr>
+            </thead>
+
+        <tbody>
+        {% for invitation in invitations %}
+        <tr>
+            <td> test{# {{ groupe.nom }} #} </td>
+            <td>
+                {{ form_start(formulaire, {'attr': {'class': 'form-inline'}}) }}
+                {{ form_errors(formulaire) }}
+
+                {{ form_widget(formulaire.Accepter, {'attr': {'class': 'btn btn-success'}}) }}
+                {{ form_widget(formulaire.Refuser, {'attr': {'class': 'btn btn-danger'}}) }}
+                {{ form_rest(formulaire) }}
+                {{ form_end(formulaire) }}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+  </table>
+    </div>
+{% endif %}
+
+{% endblock %}

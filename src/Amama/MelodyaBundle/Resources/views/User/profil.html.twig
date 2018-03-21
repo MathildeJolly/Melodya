@@ -1,0 +1,123 @@
+{% extends "AmamaMelodyaBundle:templates:layout.html.twig" %}
+
+{% block title %}Profil{% endblock %}
+
+  {% block body %}
+
+    <div class="row">
+
+      {% if user.avatar is defined  %}
+        <div class="col-lg-push-1">
+          <h3 class="text-center"> Mon profil </h3>
+          <hr>
+          <div id="avatar" class="jumbotron" style="background-image: linear-gradient(RGBA(176, 0, 0, 0.2),white)">
+
+            <div class="row">
+              <div class="pull-left" style="margin:1%;">
+                <a href="{{ path('m_parametres_profil') }}"><img src="{{ asset('bundles/amamamelodya/img/icone/png/cog-2x.png') }}">  Modifier mon profil</a>
+              </div>
+            </div>
+
+            <div class="row">
+              <img src="{{  asset('bundles/amamamelodya/img/avatar/' ~ user.avatar) }}" alt="{{ user.avatar }}"  width="20%" class="img-thumbnail" />
+
+              <div class="col-lg-8 pull-right">
+
+                {% if musiques %}
+                {% for row in musiques %}
+                  <a href="{{ path('m_musiques')}}">{{ row.titre }} - {{row.artiste}}</a><br>
+                  <audio controls id="derniereMusique">
+                    <source src="{{ path('m_musique_download',{'musique': row.lien}) }}" type="audio/mp3">
+                      Votre navigateur ne supporte pas <code>audio</code>.
+                    </audio><br><br>
+                  {% endfor %}
+                {% else %}
+                </br>
+                Vous n'avez pas encore uploadé de musiques sur Melodya...
+              </br>
+              <a href="{{ path('m_upload') }}">Uploader une musique</a>
+            {% endif %}
+
+          </div>
+
+        </div>
+
+      </div>
+
+    {% else %}
+
+      <div class="col-lg-push-1">
+
+        <div id="avatar" class="jumbotron" style="background: RGBA(176, 0, 0, 0.2)">
+         <div class="row">
+          <div class="pull-left" style="padding-bottom:1%;">
+            <a href="{{ path('m_parametres_profil') }}"><img src="{{ asset('bundles/amamamelodya/img/icons/settings-work-tool.png') }}">  Modifier mon profil</a>
+          </div>
+        </div>
+        <img src="{{ asset('bundles/amamamelodya/img/avatarParDefaut.png') }}" />
+      </div>
+    </div>
+  {% endif %}
+
+</div>
+
+<hr>
+
+<div class="row">
+
+  <div class="col-lg-6"> 
+
+   <h3>Mes informations personnelles</h3>
+
+   {% if user %}
+    Prénom : {{ user.prenom }} </br>
+    Email : {{ user.mail }} </br>
+    Login : {{ user.login }} </br>
+    Age : {{ 2018 - user.anneeNaissance }} ans</br>
+  {% endif %}
+
+</div>
+
+<div class="col-lg-6 col-lg-push-2"> 
+
+  <h3>Mes groupes</h3>
+
+  {% if groupes %}
+    {% for row in groupes %}
+     <li><a href="{{ path('m_home_groupe', { 'id': row.id }) }}">{{ row.nom }}</a></li>
+   {% endfor %}
+ {% else %}
+  Vous ne faites pas encore parti de groupes...
+</br>
+{% endif %}
+</br>
+
+<a href="{{ path('m_creation_groupe') }}">Créer un groupe</a></br>
+</br>
+{% if invitations %}
+    <a href="{{ path('m_invitations', { 'idUser': user.id }) }}">Mes demandes d'invitations</a> <span class="badge">{{ invitations|length }}</span>
+{% else %}
+  Vous n'avez pas reçu d'invitations.
+{% endif %}
+
+</div>
+
+</div>
+<hr>
+<div class="row">
+  <div class="col-lg-6">
+    <h3> Mes tags de musiques préférées :</h3> 
+    <span class="badge badge-pill">Hip-Hop</span> <span class="badge badge-pill">Kompa</span> </br>
+    <a>Ajouter un tag de musique préférée</a></br>
+
+  </div>
+  <div class="col-lg-6 col-lg-push-2">
+    <h3>Mes playlists</h3>{% if playlists %}
+    <a href="{{ path('m_playlists')}}">Voir mes playlists</a></br>
+  {% else %}
+    Vous n'avez pas encore créée de playlist...</br>
+  {% endif %}
+</br><a href="{{ path('m_creation_playlist')}}">Créer une playlist</a>
+</div>
+</div>
+{% endblock %}

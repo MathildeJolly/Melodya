@@ -1,0 +1,13 @@
+#parameters:
+ #   object_manager: Doctrine\Common\Persistence\ObjectManager
+
+services:
+    #amama.repository.user:
+     #   class: Amama\MelodyaBundle\Repository\UserRepository
+      #  factory_service: doctrine.orm.default_entity_manager
+       # factory_method: getRepository
+            
+    #amama.twig_extension:
+     # class: Amama\MelodyaBundle\Twig\UserExtension
+      #arguments: ['@amama.repository.user']
+      #tags: { name: twig.extension }

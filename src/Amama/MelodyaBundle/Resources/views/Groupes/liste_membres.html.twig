@@ -1,0 +1,35 @@
+{% extends "AmamaMelodyaBundle:templates:layout_groupe.html.twig" %}
+
+{% block title %}Liste des membres{% endblock %}
+
+{% block body %}
+<h3 class="text-center">Liste des membres</h3>
+
+<hr>
+
+<p class="text-center" style="color: #8B0000">Administrateur du groupe : <strong>{{ admin.login }}</strong> </p>
+
+{% if groupe.admin == admin.id %}
+  <a href="{{ path('m_ajout_membre', {'id': groupe.id} ) }}" class="text-center">Ajouter des membres</a>
+{% endif %}
+
+<div class="parcoursProfilBlock1">
+{#{% for membre in groupe %}
+
+    <div class="parcoursProfilBlock2">
+        <img src="{{ asset('bundles/amamamelodya/img/avatar/'~membre.avatar)}}" alt="{{membre.login}}" id="parcoursProfilAvatar" /> 
+        <div class="parcoursProfilInfo">
+        <a href="{{ path('m_profil_p', {'login': membre.login} ) }}">
+            <p> {{membre.login}} </p>
+        </a>
+        {% if membre.prenom is null %}
+            <p> </p>
+        {% else %}
+            <p>Prénom : {{membre.prenom}}</p>
+        {%endif%}
+        </div>
+    </div>
+
+ {%endfor%}#}
+</div>
+{% endblock %}

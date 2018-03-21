@@ -1,0 +1,41 @@
+<?php
+
+namespace Amama\MelodyaBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * GroupeUser
+ *
+ * @ORM\Table(name="groupe_user")
+ * @ORM\Entity(repositoryClass="Amama\MelodyaBundle\Repository\GroupeUserRepository")
+ */
+class GroupeUser
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="Amama\MelodyaBundle\Entity\Groupe")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $groupe;
+
+    /**
+     * @var int
+     *
+     * @ORM\ManyToOne(targetEntity="Amama\MelodyaBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+
+}

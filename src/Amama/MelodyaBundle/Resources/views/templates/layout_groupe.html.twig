@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="FR-fr">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Melodya - {% block title %}{% endblock %}</title>
+
+    {% block styles %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/amamamelodya/bootstrap/css/bootstrap.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/amamamelodya/css/one-page-wonder-index.css') }}">
+
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/amamamelodya/style.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Snippet" />
+    {% endblock %}
+
+  </head>
+
+  <body>
+
+    <header>
+      <nav class="navbar navbar-inverse navbar-static-top" style="background-color: #8B0000">
+
+        <div class="container-fluid">
+
+          <div class="navbar-header">
+            <a class="navbar-brand" href="{{ path('m_home') }}">Melodya</a>
+          </div>
+
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li>
+                <a href="{{ path('m_groupe_membres', {'id': groupe.id }) }}">Liste des membres</a>
+              </li>
+              {#<li>
+                <a href="{{ path('m_groupe_tchat', {'id': groupe.id}) }}">Tchat de groupe</a>
+              </li>
+              <!--<li>
+                <a href="{{ path('m_discoverya', {'page': 1}) }}">Discoverya</a>
+              </li>     -->         
+              <li>
+                <a href="{{ path('m_musiques') }}">Musiques</a>
+              </li>#}
+              <li>
+                <a href="{{ path('m_upload') }}">Upload</a>
+              </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+               
+            {# Si l'user actuel est défini #}
+            {% if user is defined %}
+             <li><a href="{{ path('m_profil',{ 'login': user.login }) }}"><img src="{{ asset('bundles/amamamelodya/img/icone/png/person-2x.png') }}"> Mon profil</a></li>
+            {% endif %}
+              <li><a href="{{ path('m_home') }}"><i class="fa fa-facebook-square"></i> Retourner au menu principal</a></li>
+            </ul>
+            {{ render(controller('AmamaMelodyaBundle:User:rechercheMusiqueBarre')) }}
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container">
+      {% block body %}
+
+      {% endblock %}
+    </div>
+
+  </body>
+
+  </div>
+
+ <footer class="m_footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <p>Copyright &copy; Amama - Melodya 2018</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script  src="{{ asset('bundles/amamamelodya/jstchat.js') }}"></script>
+
+</html>

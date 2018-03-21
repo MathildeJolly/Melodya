@@ -1,0 +1,55 @@
+{% extends "AmamaMelodyaBundle:templates:layout.html.twig" %}
+
+{% block title %} Ses musiques{% endblock %}
+
+{% block body %}
+
+<h3 class="text-center"> Ses musiques </h3>
+
+ <p class="text-center" style="color: orange; font-size: 1.2em">
+  Retrouvez ici toutes les musiques que {{user.login}} a uploadées.</p>
+
+<hr>
+
+{% if not musiques %}
+  <p class="text-center">Aucune musique uploadée.</p>
+{% else %}
+
+{% set items = ['a', 'b', 'c', 'd', 'e', 'f', 'g'] %}
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Titre</th>
+        <th>Artiste</th>
+        <th>Album</th>
+        <th>Style</th>
+        <th>Ecoute</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    {% for row in musiques %}
+      <tr>
+        <td> {{row.titre}}</td>
+        <td> {{row.artiste}}</td>
+
+        <td> {{row.album}}</td>
+        <td> {{row.tag}}</td>
+        <td>
+          <audio controls id="mesMusiques">
+            <source src="{{ path('m_musique_download',{'musique': row.lien}) }}" type="audio/mp3">
+              Votre navigateur ne supporte pas <code>audio</code>.
+          </audio>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+  <!--<a href="{{ path('m_profil_p', {'login': user.id }) }}"> Retourner à son profil </a>-->
+
+  </div>
+
+  {% endif %}
+{% endblock %}

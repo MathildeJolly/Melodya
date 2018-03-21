@@ -1,0 +1,31 @@
+{% extends "AmamaMelodyaBundle:templates:layout.html.twig" %}
+
+{% block title %}Upload{% endblock %}
+
+
+  {% block body %}
+    <h3 class="text-center"> Upload </h3>
+
+    <hr>
+    
+      <div class="form-group">
+
+        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+        {{ form_errors(form) }}
+        <div class="form-group col-lg-6">
+          {{ form_row(form.titre) }}
+          {{ form_row(form.artiste) }}
+          {{ form_row(form.album) }}
+          {{ form_row(form.tag) }}
+          {{ form_row(form.file) }}
+
+          {{ form_widget(form.Upload, {'attr': {'class': 'btn btn-lg btn-success btn-block'}}) }}
+        </div>
+        {{ form_rest(form) }}
+        {{ form_end(form)}}
+      </div>
+
+      <div class="col-lg-6">
+        <h4 class="text-center">Vous pouvez télécharger des musiques depuis Youtube grâce à des convertisseurs MP3.</h4>
+      </div>  
+  {% endblock %}

@@ -1,0 +1,11 @@
+<div class="form-group">
+  {{ form_start(formConnexion, {'attr': {'class': 'form-inline'}}) }}
+  {{ form_errors(formConnexion) }}
+
+  {{ form_row(formConnexion.login) }}
+  {{ form_row(formConnexion.password) }}
+
+  {{ form_widget(formConnexion.Connexion, {'attr': {'class': 'btn btn-success'}}) }}
+  {{ form_rest(formConnexion) }}
+  {{ form_end(formConnexion) }}
+</div>

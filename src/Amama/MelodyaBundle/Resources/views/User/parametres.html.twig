@@ -1,0 +1,21 @@
+{% extends "AmamaMelodyaBundle:templates:layout.html.twig" %}
+
+{% block title %}Parametres{% endblock %}
+
+
+{% block body %}
+<h3 class="text-center"> Modifier son profil </h3>
+
+<div class="form-group">
+  {{ form_start(modificationForm, {'attr': {'class': 'form-horizontal'}}) }}
+  {{ form_errors(modificationForm) }}
+  {{ form_row(modificationForm.mail) }}
+
+  {{ form_widget(modificationForm.Modifier, {'attr': {'class': 'btn btn-success'}}) }}
+
+  {{ form_rest(modificationForm) }}
+  {{ form_end(modificationForm)}}
+  </div>
+
+ 
+{% endblock %}

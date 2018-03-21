@@ -1,0 +1,27 @@
+{% if toutEstBon == false %}
+<div class="alert alert-danger" role="alert">
+ <strong>{{ messageErreur }}</strong>
+</div>
+{% endif %}
+
+<h1> Inscription </h1>
+  <div class="form-group">
+    {{ form_start(formInscription, {'attr': {'class': 'form-horizontal'}}) }}
+    {{ form_errors(formInscription) }}
+
+    {{ form_row(formInscription.login) }}
+    {{ form_row(formInscription.prenom) }}
+    {{ form_row(formInscription.mail) }}
+    {{ form_row(formInscription.anneeNaissance) }}
+    {{ form_row(formInscription.password) }}
+    {{ form_row(formInscription.confirmer) }}
+
+  
+    {{ form_row(formInscription.avatar) }}
+
+    {{ form_widget(formInscription.Inscription, {'attr': {'class': 'btn btn-success btn-block'}}) }}
+
+    {#{{ form_rest(formInscription) }}#}
+    {{ form_end(formInscription) }}
+  </div>
+

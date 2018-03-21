@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: dwarves.iut-fbleau.fr
+    database_port: null
+    database_name: lundi
+    database_user: lundi
+    database_password: Coucou
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: 8cbc6abf57dd19b8c8d25d6a83f249e9380f9f15

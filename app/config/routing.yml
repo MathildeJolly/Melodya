@@ -1,0 +1,14 @@
+amama_platform:
+    resource: "@AmamaMelodyaBundle/Resources/config/routing.yml"
+    prefix:   /
+
+login:
+    path: /connexion
+    defaults:
+      _controller: AmamaMelodyaBundle:User:connexion
+
+login_check:
+    path: /login_check
+
+logout:
+    path: /logout

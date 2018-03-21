@@ -1,0 +1,57 @@
+{% extends "AmamaMelodyaBundle:templates:layout.html.twig" %}
+
+{% block title %}Discoverya{% endblock %}
+
+{% block body %}
+
+<div class="row">
+      <h3 class="text-center"> Discoverya </h3>
+      <hr>
+    <p class="text-center" style="color: orange; font-size: 1.2em">Bienvenue dans le coeur de Melodya: Discoverya. Sur une selection de musiques de la plateforme, rencontrez et discutez avec les membres ayant uploadé des musiques que vous appréciez.</p>
+</div>
+
+<div class="row">
+    <div class="text-center">
+        <button id="start_discoverya" data-toggle="collapse" data-target="#discoverya" class="btn btn-default text-center">Entrez dans Discoverya</button>
+    </div>    
+</div>
+
+<div id="discoverya" style="visibility:hidden; border: 1px solid black; margin: 1%;">
+    <div class="container">
+        <div class="col-lg-5 col-lg-push-3">
+            {% for music in listeMusics %}
+                <div class="text-center" style="padding: 1%;">
+                  Musique : {{ music.titre }} - {{ music.artiste }} - {{ music.album }}
+                </div>
+                    <hr>
+                <div class="text-center" id="music">
+                    <audio id="audioPlayer" ontimeupdate="update(this)">
+                        <source src="{{ path('m_musique_download',{'musique': music.lien}) }}" type="audio/mp3">
+                        Votre navigateur ne supporte pas <code>audio</code>.
+                    </audio>
+
+                    <div>
+                        <div id="progressBarControl" style="border: solid black 1px;">
+                            <div id="progressBar">Pas de lecture</div>
+                        </div>
+                        <span id="progressTime">00:00</span>
+                    </div>
+
+                    <button id="play" class="control" onclick="play('audioPlayer', play)"><img id="iPlay" class="play" src="{{ asset('bundles/amamamelodya/img/icons/play-button.png') }}" /></button>
+                    <button id="stop" class="control" onclick="stop('audioPlayer)" ><img class="stop" src="{{ asset('bundles/amamamelodya/img/icons/stop-button.png') }}" /></button>
+                </div>
+    {#           Musique de : {{ findUserMusic(music.idUser) }}#}
+            {% endfor %}
+        </div>
+        
+    </div>
+    <button id="likeButton" class="col-lg-2 col-lg-push-4"><img id="like" class="text-center" src="{{ asset('bundles/amamamelodya/img/icons/like_empty.png') }}" /></button>
+
+   {# <button id="retour" class="btn btn-btn-default" >Retour</button> #}
+    {% include "AmamaMelodyaBundle:templates:pagination.html.twig" %}
+</div>
+
+<script src="{{ asset('bundles/amamamelodya/js/discoverya.js') }}"></script>
+
+{% endblock %}
+

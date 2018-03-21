@@ -1,0 +1,57 @@
+{% extends "AmamaMelodyaBundle:templates:layout.html.twig" %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<style type="text/css">
+
+
+</style>
+<div class="row">
+  <div class="col-lg-12 jumbotron">
+    <a data-toggle="collapse" data-target="#search" style="color:black">Recherche des musiques</a>
+
+    {% if results is defined %}
+      {{ results }}
+    {% endif %}
+
+    {#<div id="search" class="collapse">
+
+      CHAMP TITRE</br>
+      CHAMP ALBUM</br>
+      CHAMP ARTISTE</br>
+    </div>#}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-5 jumbotron pull-right">
+    Affichage des musiques du moments</br>
+    {% for musique in musiques %}
+      <a href="{{ path('m_musiques')}}">{{ musique.titre }} - {{musique.artiste}}</a><br>
+        <audio controls id="derniereMusique">
+          <source src="{{ path('m_musique_download',{'musique': musique.lien}) }}" type="audio/mp3">
+         Votre navigateur ne supporte pas <code>audio</code>.
+        </audio><br><br>
+    {% endfor %}
+   {# FILTRER PAR ...#}
+  </div>
+
+  <div class="col-lg-5 col-lg-pull-2 jumbotron pull-right">
+    <a href="{{ path('m_profiles') }}" style="color:black">Consultation des profils des membres</a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-5 jumbotron pull-right">
+    Affichage des dernieres musiques ajoutées sur Melodya</br>
+    {#FILTRER PAR ...#}
+  </div>
+
+  <div class="col-lg-5 col-lg-pull-2 jumbotron pull-right">
+    <a href="{{ path('m_home_tchat') }}" style="color:black">Salons publique</a>
+  </div>
+</div>
+
+
+{% endblock %}
